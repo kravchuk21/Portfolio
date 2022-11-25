@@ -1,0 +1,31 @@
+@import "./fonts.scss";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100%;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  background-color: #010C15;
+  color: #607B96;
+  font-family: 'Fira Code', monospace;
+  height: 100vh;
+}
+
+body {
+  padding: 40px;
+}
+
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: #011627;
+  border: 1px solid #1E2D3D;
+  border-radius: 8px;
+  height: 100%;
+}
