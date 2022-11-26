@@ -16,7 +16,6 @@ const Header = () => {
       <div className={styles.headerTitle}>
         <Title tag="h4">kravchuk21</Title>
       </div>
-      <Navigation active={navigationActive} />
       <button
         className={styles.headerNavigationButton + ' ' + (navigationActive ? styles.active : "")}
         onClick={onToggleNavigationActive}
@@ -25,6 +24,7 @@ const Header = () => {
         <div />
         <div />
       </button>
+      <Navigation active={navigationActive} />
     </header>
   )
 }

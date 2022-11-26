@@ -19,7 +19,7 @@ html, body {
 }
 
 body {
-  padding: 40px;
+  padding: 30px;
 
   @media (max-width: 765px) {
     & {
@@ -42,4 +42,5 @@ body {
 
 .page {
   flex: 1;
+  overflow: hidden;
 }
