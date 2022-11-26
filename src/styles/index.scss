@@ -19,11 +19,11 @@ html, body {
 }
 
 body {
-  padding: 30px;
+  padding: 20px;
 
   @media (max-width: 765px) {
     & {
-      padding: 15px;
+      padding: 10px;
     }
   }
 }
