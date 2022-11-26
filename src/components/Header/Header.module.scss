@@ -113,7 +113,7 @@
           left: 0;
           right: 0;
           top: $header-height;
-          bottom: 0;
+          bottom: $header-height;
           height: auto;
 
           #{$self}List {
@@ -123,6 +123,9 @@
               width: 100%;
               height: auto;
               border-bottom: 1px solid #1E2D3D;
+              border-left: none;
+              border-right: none;
+              color: #ffffff;
               
               &Link {
                 width: 100%;

@@ -3,11 +3,12 @@ import styles from './Typography.module.scss'
 
 export interface Typography {
   children: React.ReactNode;
+  className?: string;
 }
 
-const Typography: React.FC<Typography> = ({ children }) => {
+const Typography: React.FC<Typography> = ({ children, className }) => {
   return (
-    <p className={styles.typography}>{children}</p>
+    <p className={styles.typography + ' ' + className}>{children}</p>
   )
 }
 
