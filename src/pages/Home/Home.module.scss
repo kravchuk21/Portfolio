@@ -47,11 +47,13 @@
     &2 {
       color: #E5E9F0;
       margin: 10px 0;
+      font-size: 62px;
     }
 
     &3 {
       color: #4D5BCE;
       margin-bottom: 60px; 
+      font-size: 32px;
     }
 
     &4 {
@@ -69,6 +71,13 @@
       &::after, &::before {
         height: 200px;
         width: 230px;
+      }
+
+      &Info {
+        &3 {
+          color: #43D9AD;
+          font-size: 20px;
+        }
       }
     } 
   }
