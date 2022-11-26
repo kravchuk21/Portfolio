@@ -1,0 +1,140 @@
+.header {
+  $header-height: 50px;
+  $header-background: #011627;
+
+  border-bottom: 1px solid #1E2D3D;
+  display: flex;
+  height: $header-height;
+  background-color: $header-background;
+  align-items: center;
+  padding: 0 30px;
+
+  &Title {
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
+  }
+
+  &Navigation {
+    height: 100%;
+    background-color: $header-background;
+
+    &Button {
+      $button-padding: 5px;
+      $button-size: 22px;
+      $button-color: #607B96;
+
+      height: calc($button-padding + $button-size - 3px);
+      width: calc($button-padding + $button-size);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      justify-content: space-between;
+      background: none;
+      border: none;
+      padding: $button-padding;
+      margin: 0;
+
+      & div {
+        background: $button-color;
+        height: 2px;
+        width: 100%;
+      }
+
+      &.active {
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        & div {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 0;
+          right: 0;
+        }
+
+        & div:nth-child(even) {
+          display: none;
+        }
+
+        & div:nth-child(1) {
+          transform: rotate(45deg);
+        }
+
+        & div:nth-child(3) {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+
+    &List {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+
+      &Item {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        height: 100%;
+        border-right: 1px solid #1E2D3D;
+        border-left: 1px solid #1E2D3D;
+
+        &Link {
+          padding: 0 30px;
+          color: inherit;
+          text-decoration: none;
+
+          &:hover, &:focus-visible, &:active {
+            color: #ffffff;
+            border-bottom: 3px solid #FEA55F;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 765px) {
+    & {
+      justify-content: space-between;
+      
+      &Navigation {
+        display: none;
+        $self: &;
+
+        &.active {
+          position: absolute;
+          display: block;
+          align-items: center;
+          left: 0;
+          right: 0;
+          top: $header-height;
+          bottom: 0;
+          height: auto;
+
+          #{$self}List {
+            flex-direction: column;
+
+            &Item {
+              width: 100%;
+              height: auto;
+              border-bottom: 1px solid #1E2D3D;
+              
+              &Link {
+                width: 100%;
+              }
+            }
+          }
+        }
+
+        &Button {
+          display: flex;
+        }
+      }      
+    }
+  }
+}

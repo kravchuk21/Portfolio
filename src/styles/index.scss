@@ -14,18 +14,26 @@ html, body {
   background-color: #010C15;
   color: #607B96;
   font-family: 'Fira Code', monospace;
+  font-size: 16px;
   height: 100vh;
 }
 
 body {
   padding: 40px;
+
+  @media (max-width: 765px) {
+    & {
+      padding: 15px;
+    }
+  }
 }
 
 .wrapper {
-  max-width: 1400px;
+  max-width: 1700px;
   margin: 0 auto;
   background-color: #011627;
   border: 1px solid #1E2D3D;
   border-radius: 8px;
   height: 100%;
+  position: relative;  
 }
