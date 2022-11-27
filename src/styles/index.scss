@@ -28,6 +28,12 @@ body {
   }
 }
 
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .wrapper {
   max-width: 1700px;
   margin: 0 auto;

@@ -2,6 +2,8 @@
   $header-height: 50px;
   $header-background: #011627;
 
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   border-bottom: 1px solid #1E2D3D;
   display: flex;
   height: $header-height;
@@ -90,7 +92,7 @@
           height: $header-height;
           display: flex;
           align-items: center;
-          &:hover, &:focus-visible, &:active {
+          &.active, &:hover, &:focus {
             color: #ffffff;
             border-bottom: 3px solid #FEA55F;
           }
@@ -117,6 +119,7 @@
           bottom: $header-height;
           height: auto;
           z-index: 999;
+          overflow-y: auto;
 
           #{$self}List {
             flex-direction: column;

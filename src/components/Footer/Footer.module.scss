@@ -1,11 +1,14 @@
 .footer {
   $footer-height: 50px;
+  $border: 1px solid #1E2D3D;
 
-  border-top: 1px solid #1E2D3D;
+  border-top: $border;
   height: $footer-height;
   display: flex;
   align-items: center;
   width: 100%;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 
   &Title {
     padding: 0 30px;
@@ -23,13 +26,15 @@
     &Item {
       $icon-size: 20px;
       height: 100%;
+      border-right: $border;
       
       &:last-child {
         margin-left: auto;
+        border-right: none;
       }
 
       &:first-child, &:last-child {
-        border-left: 1px solid #1E2D3D;
+        border-left: $border;
       }
 
       &Description { 
@@ -42,7 +47,6 @@
         color: inherit;
         height: 100%;
         padding: 0 15px; 
-        border-right: 1px solid #1E2D3D;
         text-decoration: none;
 
         &:hover, &:active, &:focus-visible {
@@ -73,6 +77,10 @@
         &Item{
           &:last-child {
             margin-left: 0;
+          }
+
+          &:last-child {
+            border: none;
           }
 
           &Description {

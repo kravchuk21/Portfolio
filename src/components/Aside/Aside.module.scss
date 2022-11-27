@@ -1,0 +1,116 @@
+.aside {
+  width: 300px;
+  padding: 15px 30px;
+  border-right: 1px solid #1E2D3D;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.structure {
+  $color:  #607B96;
+  $font-size: 16px;
+  $padding-left: 15px;
+  $rectangle-size: 5px; 
+  
+  font-size: $font-size;
+  color: $color;
+
+  &Folders {
+    &Item {   
+      $self: &;
+      margin-bottom: 10px;     
+
+      &Title {
+        display: inline-flex;
+        border: none;
+        background: transparent;
+        color: inherit;
+        font-size: inherit;
+        align-items: baseline;
+        position: relative;
+        padding-left: $padding-left + $rectangle-size;
+        align-items: center;
+
+        & svg {
+          fill: $color;
+          width: 16px;
+          height: 16px;
+          display: block;
+          margin-right: $rectangle-size;
+        }
+
+        &::before {
+          position: absolute;
+          content: '';
+          width: 0;
+	        height: 0;
+	        border-top: $rectangle-size solid transparent;
+	        border-left: $rectangle-size solid $color;
+	        border-bottom: $rectangle-size solid transparent;
+          left: $rectangle-size;
+          top: $rectangle-size;
+        }
+      }
+
+      &.active {
+        #{$self} {
+          &:hover, &:focus-visible {
+            color: #ffffff;
+          }
+
+          &Files {
+            display: block;
+          }
+          &Title {
+            &::before {
+              transform: rotate(90deg);
+            }
+          }
+        }
+      }
+
+      &Files {
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding-left: calc($padding-left + $rectangle-size);
+        &Item {
+          padding: 4px 0;
+                  
+          &Link {
+            display: flex;
+            align-items: center;
+
+            svg {
+              fill: $color;
+              height: $font-size;
+              width: $font-size;
+              margin-right: 5px;
+            }
+
+            &.active, &:hover, &:focus-visible {
+              color: #ffffff;
+
+              svg {
+                fill: #ffffff;
+              }
+            }
+
+            text-decoration: none;
+            color: inherit;
+          }
+        }
+      }
+    }
+  }
+}
+
+ @media screen and (max-width: 765px) { 
+  .aside {
+    width: 100%;
+    height: fit-content;
+    border-right: none;
+    border-bottom: 1px solid #1E2D3D;
+  }
+
+ }

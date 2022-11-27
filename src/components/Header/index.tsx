@@ -1,4 +1,6 @@
 import React from "react"
+import { Link, NavLink } from "react-router-dom"
+import { ROUTES } from "../../constants/Routes"
 import Title from "../Title"
 import Typography from "../Typography"
 import styles from "./Header.module.scss"
@@ -17,6 +19,9 @@ const Header = () => {
         <Title tag="h4">kravchuk21</Title>
       </div>
       <button
+        type="button"
+        aria-expanded={navigationActive}
+        aria-controls="navigation"
         className={styles.headerNavigationButton + ' ' + (navigationActive ? styles.active : "")}
         onClick={onToggleNavigationActive}
       >
@@ -24,7 +29,7 @@ const Header = () => {
         <div />
         <div />
       </button>
-      <Navigation active={navigationActive} />
+      <Navigation id="navigation" active={navigationActive} />
     </header>
   )
 }
@@ -36,22 +41,22 @@ type NavigationItemType = {
 
 const NAVIGATION: NavigationItemType[] = [
   {
-    path: "#",
+    path: ROUTES.HOME,
     title: "_hello",
   },
   {
-    path: "#",
+    path: ROUTES.ABOUT,
     title: "_about-me",
   },
-  {
-    path: "#",
-    title: "_projects",
-  }
+  // {
+  //   path: "#",
+  //   title: "_projects",
+  // }
 ]
 
-const Navigation: React.FC<{ active?: boolean }> = ({ active = true }) => {
+const Navigation: React.FC<{ id: string, active?: boolean }> = ({ id, active = true }) => {
   return (
-    <nav className={styles.headerNavigation + ' ' + (active ? styles.active : "")}>
+    <nav id={id} className={styles.headerNavigation + ' ' + (active ? styles.active : "")}>
       <ul className={styles.headerNavigationList}>
         {
           NAVIGATION.map((navigatioItem, index) =>
@@ -65,9 +70,9 @@ const Navigation: React.FC<{ active?: boolean }> = ({ active = true }) => {
 const NavigationItem: React.FC<NavigationItemType> = ({ title, path }) => {
   return (
     <li className={styles.headerNavigationListItem}>
-      <a className={styles.headerNavigationListItemLink} href={path}>
+      <NavLink className={({ isActive }) => styles.headerNavigationListItemLink + ' ' + (isActive ? styles.active : '')} to={path}>
         <Typography>{title}</Typography>
-      </a>
+      </NavLink>
     </li>
   )
 }
