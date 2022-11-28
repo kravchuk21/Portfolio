@@ -1,4 +1,51 @@
 .about {
   display: flex;
   height: 100%;
+  flex: 1;
+  
+  &Content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    &Title {
+      margin-bottom: 30px;
+      color: #ffffff;
+    }
+  }
 }
+
+.file {
+  $self: &;
+  display: flex;
+  font-size: 18px;
+
+  &Row {
+    &:first-child {
+      margin-right: 30px;
+    }    
+
+    &:last-child {
+      overflow-x: auto;
+      
+      #{$self}String {
+        white-space: nowrap;
+      }
+    }
+    &Number {
+      text-align: right;
+    }
+  }
+}
+
+ @media screen and (max-width: 765px) {
+  .about {
+    display: block;
+    overflow-y: auto;
+  }
+
+  .file {
+    font-size: 16px;
+  }
+ }

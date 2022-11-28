@@ -2,12 +2,21 @@ import React from "react"
 import { NavLink } from "react-router-dom"
 import { ROUTES } from "../../constants/Routes"
 import Title from "../Title"
+import Typography from "../Typography"
 import styles from "./Aside.module.scss"
 
 const Aside = () => {
   return (
     <aside className={styles.aside}>
       <Structure />
+      <div className={styles.asideContacts}>
+        <a className={styles.asideContactsLink} href="tel:+375333767404">
+          <Typography>+375 (33) 376-74-04</Typography>
+        </a>
+        <a className={styles.asideContactsLink} href="mailto:krauchukvlad@gmail.com">
+          <Typography>krauchukvlad@gmail.com</Typography>
+        </a>
+      </div>
     </aside>
   )
 }

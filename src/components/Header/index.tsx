@@ -1,17 +1,24 @@
 import React from "react"
-import { Link, NavLink } from "react-router-dom"
+import { NavLink, useLocation } from "react-router-dom"
 import { ROUTES } from "../../constants/Routes"
 import Title from "../Title"
 import Typography from "../Typography"
 import styles from "./Header.module.scss"
 
 const Header = () => {
-
   const [navigationActive, setNavigationActive] = React.useState(false);
 
   const onToggleNavigationActive = (): void => {
     setNavigationActive(a => !a)
   }
+
+  const location = useLocation();
+
+  React.useEffect(() => {
+    if (navigationActive) {
+      onToggleNavigationActive();
+    }
+  }, [location]);
 
   return (
     <header className={styles.header}>

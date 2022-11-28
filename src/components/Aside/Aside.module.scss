@@ -1,9 +1,26 @@
 .aside {
   width: 300px;
-  padding: 15px 30px;
+  padding: 30px;
   border-right: 1px solid #1E2D3D;
   height: 100%;
+  flex-basis: 300px;
+  flex-grow: 0;
+	flex-shrink: 0;
   overflow-y: auto;
+
+  &Contacts {
+    margin-top: 30px;
+    &Link {
+      &:hover, &:focus-visible {
+        color: #ffffff;
+      }
+
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      margin-bottom: 5px;
+    }
+  }
 }
 
 .structure {
@@ -13,6 +30,7 @@
   $rectangle-size: 5px; 
   
   font-size: $font-size;
+  font-weight: normal;
   color: $color;
 
   &Folders {
@@ -50,21 +68,30 @@
           left: $rectangle-size;
           top: $rectangle-size;
         }
+
+        &:hover, &:focus-visible {
+          color: #ffffff;
+
+          &::before {
+            border-left-color: #ffffff;
+          }
+
+          svg {
+            fill: #ffffff;
+          }
+        }
       }
 
       &.active {
         #{$self} {
-          &:hover, &:focus-visible {
-            color: #ffffff;
-          }
-
-          &Files {
-            display: block;
-          }
           &Title {
             &::before {
               transform: rotate(90deg);
             }
+          }
+
+          &Files {
+            display: block;
           }
         }
       }
@@ -113,4 +140,24 @@
     border-bottom: 1px solid #1E2D3D;
   }
 
- }
+  .structure {
+    &Folders {
+      &Item {
+        &Title {
+          width: 100%;
+          background-color: #1E2D3D;
+          color: #ffffff;
+
+
+          &::before {
+            border-left-color: #ffffff;
+          }
+
+          svg {
+            fill: #ffffff;
+          }
+        }
+      }
+    }
+  }
+}
